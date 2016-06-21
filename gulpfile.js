@@ -50,7 +50,7 @@ gulp.task('sass', () => {
 
 // --- Webpack
 
-gulp.task('webpack', shell.task(['webpack']));
+gulp.task('webpack', shell.task(['webpack'])); // For production builds: webpack --optimize-minimize
 
 
 // --- Watch JS and CSS files
