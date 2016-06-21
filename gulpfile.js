@@ -5,6 +5,7 @@ const concat = require('gulp-concat');
 const eslint = require('gulp-eslint');
 const gulp = require('gulp');
 const sass = require('gulp-sass');
+const shell = require('gulp-shell');
 
 
 const paths = {
@@ -13,7 +14,7 @@ const paths = {
 };
 
 
-// Tasks
+// --- Lint
 
 gulp.task('lint', () => {
 
@@ -22,6 +23,9 @@ gulp.task('lint', () => {
         .pipe(eslint.format())
         .pipe(eslint.failAfterError());
 });
+
+
+// --- Bundle external CSS assets
 
 gulp.task('bundle', () => {
 
@@ -32,6 +36,9 @@ gulp.task('bundle', () => {
         .pipe(gulp.dest('dist'));
 });
 
+
+// --- Compile SASS
+
 gulp.task('sass', () => {
     
     gulp.src(paths.sass)
@@ -40,8 +47,20 @@ gulp.task('sass', () => {
         .pipe(gulp.dest('dist'));
 });
 
+
+// --- Webpack
+
+gulp.task('webpack', shell.task(['webpack']));
+
+
+// --- Watch JS and CSS files
+
 gulp.task('watch', () => {
+    gulp.watch(paths.scripts, ['webpack']);
     gulp.watch(paths.sass, ['sass']);
 });
 
-gulp.task('default', ['sass', 'bundle']);
+
+// --- Default
+
+gulp.task('default', ['sass', 'bundle', 'webpack']);
