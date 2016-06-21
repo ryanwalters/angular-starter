@@ -23,7 +23,7 @@
     "start": "node_modules/.bin/http-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "keywords": ["angular", "starter"],
+  "author": "Ryan Walters",
+  "license": "MIT"
 }
