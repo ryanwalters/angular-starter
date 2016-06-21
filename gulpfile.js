@@ -8,7 +8,6 @@ const sass = require('gulp-sass');
 
 
 const paths = {
-    modules: './app/**/_*.js',
     scripts: './app/**/*.js',
     sass: './app/**/*.scss'
 };
@@ -27,7 +26,6 @@ gulp.task('lint', () => {
 gulp.task('bundle', () => {
 
     gulp.src([
-        './node_modules/flexboxgrid/dist/flexboxgrid.min.css',
         './node_modules/bootstrap/dist/css/bootstrap.min.css'
     ])
         .pipe(concat('bundle.css'))
