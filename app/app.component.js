@@ -2,7 +2,7 @@
 
 const AppComponent = {
     template: `
-        <ui-view>Wired up!</ui-view>
+        <main ui-view="main">Wired up!</main>
     `
 };
 
