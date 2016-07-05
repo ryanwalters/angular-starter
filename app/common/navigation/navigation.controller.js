@@ -3,13 +3,10 @@
 class NavigationController {
     
     constructor() {}
-    
-    $onInit() {
 
+    $onInit() {
         console.log('navigation');
     }
 }
-
-NavigationController.$inject = [];
 
 export default NavigationController;

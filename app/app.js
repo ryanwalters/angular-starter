@@ -16,22 +16,16 @@ const root = angular
         Components
     ])
     .component('app', AppComponent)
-    .config(appConfig);
+    .config(($stateProvider, $urlRouterProvider) => {
+        'ngInject';
+
+        $urlRouterProvider.otherwise('/');
+
+        $stateProvider
+            .state('app', {
+                component: 'app',
+                url: '/'
+            });
+    });
 
 export default root;
-
-
-// Configuration
-
-appConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
-
-function appConfig($stateProvider, $urlRouterProvider) {
-
-    $urlRouterProvider.otherwise('/');
-
-    $stateProvider
-        .state('app', {
-            component: 'app',
-            url: '/'
-        });
-}

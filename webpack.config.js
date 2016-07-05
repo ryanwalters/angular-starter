@@ -17,10 +17,7 @@ module.exports = {
         loaders: [{
             test: /\.js$/,
             exclude: /(node_modules|bower_components)/,
-            loader: 'babel',
-            query: {
-                presets: ['es2015']
-            }
+            loaders: ['ng-annotate?add=true', 'babel?presets[]=es2015']
         }]
     }
 };
